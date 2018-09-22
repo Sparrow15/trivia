@@ -15,6 +15,7 @@ class App extends Component {
       categoryDisplay: " ",
       questionDisplay: " ",
       wrongAnswerDisplay: [],
+      clearRadio: null,
     };
     
   }
@@ -77,11 +78,14 @@ getData = () => {
         
         <button id="triviaQuestionBtn" onClick={this.getQuestion}>Click Me For a Question</button>
         <form>
-            {this.state.wrongAnswerDisplay.map(answer => {
-              return  <li id = "mapList">{answer}</li>;
-              
-            }
-            )};
+          {this.state.wrongAnswerDisplay.map(answer => {
+            return (
+              <ul>
+                {answer}
+                <input value={answer} type="radio" checked={this.state.clearRadio} />
+              </ul>
+            );
+          })}
         </form>
       </div>
     );
